@@ -2,14 +2,14 @@ function solution(n, computers) {
     let result = 0
     let visited = []
     
-    function dfs(i){      
+    function dfs(i){     
+        visited.push(i)
         for(let j = 0 ; j < n ; j++){
             if(computers[i][j] === 1){
                 if(i === j){
                     continue
                 }else{
                     if(!visited.includes(j)){
-                        visited.push(j)
                         dfs(j)
                     }
 
