@@ -26,7 +26,7 @@ function solution(maps) {
                             if(moveX >=0 && moveX <= maps[0].length-1 && 
                                moveY >= 0 && moveY <= maps.length-1 ){
                                 if(visited[moveY][moveX] === 1 || maps[moveY][moveX] === "X"){
-                                    visited[moveY][moveX] = 1
+                                    
                                     continue
                                 }else{
                                     queue.push([moveY, moveX])
