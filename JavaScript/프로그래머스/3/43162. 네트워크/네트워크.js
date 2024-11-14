@@ -1,29 +1,20 @@
 function solution(n, computers) {
-    let result = 0
-    let visited = []
+    let visited = new Array(n).fill(0)
+    let count = 0
     
-    function dfs(i){     
-        visited.push(i)
-        for(let j = 0 ; j < n ; j++){
-            if(computers[i][j] === 1){
-                if(i === j){
-                    continue
-                }else{
-                    if(!visited.includes(j)){
-                        dfs(j)
-                    }
-
-                }
+    for(let i = 0 ; i < n ; i++){
+        if(visited[i]) continue
+        dfs(i)
+        count++
+    }
+    
+    function dfs(cur){
+        visited[cur] = 1
+        for(let i = 0 ; i < n ; i++){
+            if(computers[cur][i] === 1 && !visited[i]){
+                dfs(i)
             }
         }
     }
-
-    for(let i = 0 ; i < n ; i++) {
-        if(!visited.includes(i)){
-            dfs(i)
-            result+=1
-        }
-    }
-    
-    return result
+    return count
 }
